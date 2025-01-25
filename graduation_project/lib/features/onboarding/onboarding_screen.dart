@@ -1,10 +1,9 @@
-import 'package:adv_project/core/theming/styles.dart';
-import 'package:adv_project/features/onboarding/widgets/doc_logo_and_name.dart';
-import 'package:adv_project/features/onboarding/widgets/get_started_botton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'widgets/doctor_image_and_text.dart';
+import 'package:graduation_project/features/onboarding/widgets/get_started_bottom.dart';
+import 'package:graduation_project/features/onboarding/widgets/lms_logo_and_name.dart';
+import '../../core/theming/styles.dart';
+import 'widgets/student_image_and_text.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -21,25 +20,25 @@ class OnboardingScreen extends StatelessWidget {
               ),
           child: Column(
             children: [
-              DocLogoAndName(),
+              LmsLogoAndName(),
               SizedBox(
                 height: 30.h,
               ),
-              const DoctorImageAndText(),
+              const StudentImageAndText(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Column(
                   children: [
                     Text(
-                      'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
-                      style: TextStyles.font13GreyRegular,
+                      'Welcome to LMS App wish you a great learning experience\nNo place for the idle!',
+                      style: TextStyles.font12GreyRegular,
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 15.h),
                     const GetStartedBotton(),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

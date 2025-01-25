@@ -1,7 +1,8 @@
-import 'package:adv_project/core/routing/routes.dart';
-import 'package:adv_project/features/onboarding/onboarding_screen.dart';
-import 'package:adv_project/features/login/widgets/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/routing/routes.dart';
+import '../../features/login/login.dart';
+import '../../features/onboarding/onboarding_screen.dart';
+import '../../features/signup/sign_up_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -15,6 +16,11 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => const LoginScreen(),
+        );
+
+      case Routes.signUpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SignUpScreen(),
         );
       default:
         return MaterialPageRoute(
