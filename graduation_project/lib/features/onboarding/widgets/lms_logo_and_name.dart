@@ -13,7 +13,7 @@ class LmsLogoAndName extends StatelessWidget {
       children: [
         SvgPicture.asset('assets/svgs/logo_lms.svg'),
         SizedBox(width: 10.w),
-        Text('PickUp', style: TextStyles.font24Black700Weight)
+        Text('PickUp', style: TextStyles.font24BlackBold)
       ],
     );
   }

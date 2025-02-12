@@ -31,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(height: 20), // مسافة رأسية بين النصوص
             Text(
               "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
-              style: TextStyles.font14Grey,
+              style: TextStyles.font14DarkGreyregular,
             ),
             SizedBox(height: 15),
             TextField(
@@ -128,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ))),
                   child: Text(
                     'Create Account',
-                    style: TextStyles.font16WeightSemiBold,
+                    style: TextStyles.font16WeightMedium,
                   )),
             ),
             SizedBox(height: 30),

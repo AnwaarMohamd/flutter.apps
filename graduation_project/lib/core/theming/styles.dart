@@ -1,40 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/helpers/font_weight_helper.dart';
+import 'package:graduation_project/core/theming/colors.dart';
 
 class TextStyles {
-  static TextStyle font24Black700Weight = TextStyle(
+  static TextStyle font24BlackBold = TextStyle(
     fontSize: 24.sp,
     color: Colors.black,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeightHelper.bold,
   );
 
   static TextStyle font34greenBold = TextStyle(
     fontSize: 34.sp,
-    fontWeight: FontWeight.bold,
-    color: Color(0xFF316A1B),
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.mainGreenDark,
   );
 
   static TextStyle font12GreyRegular = TextStyle(
     fontSize: 12.sp,
-    fontWeight: FontWeight.normal,
-    color: Color(0xFF757575),
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.gray,
   );
 
-  static TextStyle font16WeightSemiBold = TextStyle(
+  static TextStyle font14DarkGreyregular = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.darkGray,
+  );
+
+  static TextStyle font14LightGreyMedium = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.medium,
+    color: ColorsManager.darkGray,
+  );
+
+  static TextStyle font16WeightMedium = TextStyle(
     fontSize: 16.sp,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeightHelper.medium,
     color: Colors.white,
   );
 
   static TextStyle font24lightGreen = TextStyle(
     fontSize: 24.sp,
-    color: Color(0xFF88FF61),
-    fontWeight: FontWeight.w500,
+    color: ColorsManager.lightGreen,
+    fontWeight: FontWeightHelper.bold,
   );
 
-  static TextStyle font14Grey = TextStyle(
+  static TextStyle font14darkGrey = TextStyle(
     fontSize: 14.sp,
-    fontWeight: FontWeight.normal,
-    color: Color(0xFF757575),
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.darkGray,
   );
 }

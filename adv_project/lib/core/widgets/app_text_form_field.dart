@@ -13,6 +13,8 @@ class AppTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final Color? backgroundColor;
   final Widget? suffixIcon;
+  final TextEditingController? controller;
+  final Function(String?) validator;
   const AppTextFormField({
     super.key,
     this.backgroundColor,
@@ -24,36 +26,59 @@ class AppTextFormField extends StatelessWidget {
     this.isObscureText,
     this.suffixIcon,
     required this.hintText,
+    this.controller,
+    required this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
-          isDense: true, //add padding
-          contentPadding: contentPadding ??
-              EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-          focusedBorder: focusedBorder ??
-              OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: ColorsManager.mainBlue, width: 1.3),
-                borderRadius: BorderRadius.circular(16),
+        isDense: true, //add padding
+        contentPadding: contentPadding ??
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+        focusedBorder: focusedBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: ColorsManager.mainBlue,
+                width: 1.3,
               ),
-          enabledBorder: enabledBorder ??
-              OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: ColorsManager.lightGray,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(16),
+            ),
+        enabledBorder: enabledBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: ColorsManager.lightGray,
+                width: 1.3,
               ),
-          hintStyle: hintStyle ?? TextStyles.font14LightGreyregular,
-          hintText: hintText,
-          suffixIcon: suffixIcon,
-          filled: true,
-          fillColor: backgroundColor ?? ColorsManager.moreLightGray),
+              borderRadius: BorderRadius.circular(16),
+            ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 1.3,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        hintStyle: hintStyle ?? TextStyles.font14LightGreyregular,
+        hintText: hintText,
+        suffixIcon: suffixIcon,
+        filled: true,
+        fillColor: backgroundColor ?? ColorsManager.moreLightGray,
+      ),
       obscureText: isObscureText ?? false, // show ***
       style: TextStyles.font14DarkBlueMedium,
+      validator: (value) {
+        return validator(value); //return error message Mosh zay ma omar 3mlhhha
+      },
     );
   }
 }
