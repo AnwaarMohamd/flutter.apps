@@ -7,7 +7,6 @@ import 'package:adv_project/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../logic/cubit/login_cubit.dart';
 import 'widgets/already_have_account_text.dart';
 import 'widgets/terms_and_conditions_text.dart';
