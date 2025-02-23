@@ -1,5 +1,7 @@
 import 'package:adv_project/core/networking/api_service.dart';
 import 'package:adv_project/core/networking/dio_factory.dart';
+import 'package:adv_project/features/home/data/apis/home_api_service.dart';
+import 'package:adv_project/features/home/data/repos/home_repo.dart';
 import 'package:adv_project/features/login/data/repos/login_repo.dart';
 import 'package:adv_project/features/login/logic/cubit/login_cubit.dart';
 import 'package:adv_project/features/sign_up/data/repos/sign_up_repo.dart';
@@ -24,4 +26,8 @@ Future<void> setupGetIt() async {
 
   //registerFactory كل ماحتاج الحاجه دي اعملي منه نسخه
   // ال cubit بالذات يا نونو
+
+  // home
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
 }
