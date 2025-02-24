@@ -6,9 +6,10 @@ class LoginResponse {
   String? message;
   @JsonKey(name: 'data')
   UserData? userData;
-  int? code;
   bool? status;
-  LoginResponse({this.message, this.userData, this.code, this.status});
+  int? code;
+
+  LoginResponse({this.message, this.userData, this.status, this.code});
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
@@ -21,6 +22,7 @@ class UserData {
   String? userName;
 
   UserData({this.token, this.userName});
+
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
 }

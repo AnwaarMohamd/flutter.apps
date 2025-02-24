@@ -1,10 +1,10 @@
 class ApiConstants {
   static const String apiBaseUrl = "https://vcare.integration25.com/api/";
+
   static const String login = "auth/login";
   static const String signup = "auth/register";
 }
 
-// error messages constants
 class ApiErrors {
   static const String badRequestError = "badRequestError";
   static const String noContent = "noContent";
@@ -20,5 +20,5 @@ class ApiErrors {
   static const String noInternetError = "noInternetError";
   static const String loadingMessage = "loading_message";
   static const String retryAgainMessage = "retry_again_message";
-  static const String ok = "OK";
+  static const String ok = "Ok";
 }

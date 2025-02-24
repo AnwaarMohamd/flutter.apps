@@ -1,26 +1,24 @@
-import 'package:dio/dio.dart'; // Assuming "diofilm.dmrt" refers to Dio
-import 'package:pretty_dio_logger/pretty_dio_logger.dart'; // Assuming "preity_dib_logger.dmrt" refers to PrettyDioLogger
+import 'package:adv_project/core/helpers/constants.dart';
+import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+import '../helpers/shared_pref_helper.dart';
 
 class DioFactory {
-  // Private constructor to prevent instantiation
+  /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
 
-  // Static instance of Dio for API calls
   static Dio? dio;
 
-  // Method to initialize and get Dio instance
   static Dio getDio() {
-    Duration timeout = Duration(seconds: 30);
+    Duration timeOut = const Duration(seconds: 30);
 
     if (dio == null) {
       dio = Dio();
-
-      // Set timeout options
       dio!
-        ..options.connectTimeout = timeout
-        ..options.receiveTimeout = timeout;
-
-      // Add interceptors
+        ..options.connectTimeout = timeOut
+        ..options.receiveTimeout = timeOut;
+      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -28,12 +26,25 @@ class DioFactory {
     }
   }
 
-  // Method to add addDioInterceptor
+  static void addDioHeaders() async {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) {
+    dio?.options.headers = {
+      'Authorization': 'Bearer $token',
+    };
+  }
+
   static void addDioInterceptor() {
     dio?.interceptors.add(
       PrettyDioLogger(
-        requestHeader: true,
         requestBody: true,
+        requestHeader: true,
         responseHeader: true,
       ),
     );
